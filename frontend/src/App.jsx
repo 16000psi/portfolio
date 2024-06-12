@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Menu from './components/Menu';
 import Content from './components/Content';
 import './App.css';
 
 function App() {
   const [activeSection, setActiveSection] = useState('');
+
 
   return (
     <div className="app">
