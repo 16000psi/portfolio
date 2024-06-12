@@ -7,17 +7,17 @@ function App() {
   const [activeSection, setActiveSection] = useState("");
 
   return (
-      <div className="app">
-        <div className="left-column">
-          <Menu
-            activeSection={activeSection}
-            setActiveSection={setActiveSection}
-          />
-        </div>
-        <div className="right-column">
-          <Content setActiveSection={setActiveSection} />
-        </div>
+    <div className="app">
+      <div className="left-column">
+        <Menu
+          activeSection={activeSection}
+          setActiveSection={setActiveSection}
+        />
       </div>
+      <div className="right-column">
+        <Content setActiveSection={setActiveSection} />
+      </div>
+    </div>
   );
 }
 

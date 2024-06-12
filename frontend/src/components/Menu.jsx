@@ -9,10 +9,6 @@ const menuItems = [
 ];
 
 function Menu({ activeSection, setActiveSection }) {
-  useEffect(() => {
-    console.log("Active Section:", activeSection);
-  }, [activeSection]);
-
   const handleMenuClick = (id) => {
     if (id === "1") {
       window.scrollTo({ top: 0, behavior: "smooth" });

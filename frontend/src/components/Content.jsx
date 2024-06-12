@@ -17,7 +17,6 @@ function Content({ setActiveSection }) {
           ? section.getBoundingClientRect().top - fivePercentViewPortHeight
           : null,
       );
-      console.log(sectionRelativeY)
 
       if (sectionRelativeY[0] !== null && sectionRelativeY[0] > 0) {
         // If window top is above any section
@@ -46,7 +45,6 @@ function Content({ setActiveSection }) {
   };
 
   useEffect(() => {
-    console.log(sectionRefs);
     handleScroll(); // initialise section counter
     window.addEventListener("scroll", handleScroll);
     return () => {
