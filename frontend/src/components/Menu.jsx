@@ -1,24 +1,38 @@
-import React from 'react';
+import React, { useEffect } from "react";
+import MainHeader from "./MainHeader";
 
 const menuItems = [
-  { id: 'about', label: 'About' },
-  { id: 'work', label: 'Work' },
-  { id: 'blog', label: 'Blog' },
+  { id: "1", label: "About" },
+  { id: "2", label: "Work" },
+  { id: "3", label: "Projects" },
+  { id: "4", label: "Blog" },
 ];
 
 function Menu({ activeSection, setActiveSection }) {
+  useEffect(() => {
+    console.log("Active Section:", activeSection);
+  }, [activeSection]);
+
+  const handleMenuClick = (id) => {
+    if (id === "1") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      document
+        .getElementById("section" + id)
+        .scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="menu">
-      <h2>Active Section: {activeSection}</h2>
+      <MainHeader className="menu__main-header" />
       {menuItems.map((item) => (
         <div
           key={item.id}
-          className={`menu-item ${activeSection === item.id ? 'active' : ''}`}
-          onClick={() =>
-            document
-              .getElementById(item.id)
-              .scrollIntoView({ behavior: 'smooth' })
-          }
+          className={`menu-item ${
+            String(activeSection) === item.id ? "active" : ""
+          }`}
+          onClick={() => handleMenuClick(item.id)}
         >
           {item.label}
         </div>

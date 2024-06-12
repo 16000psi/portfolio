@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import contentSections from "../contentData";
+import MainHeader from "./MainHeader";
+import AboutMe from "./AboutMe";
 
 function Content({ setActiveSection }) {
   const sectionRefs = useRef([]);
@@ -7,14 +9,15 @@ function Content({ setActiveSection }) {
   let newSection = useRef("");
 
   const handleScroll = () => {
-    const thirtyPercentViewportHeight = window.innerHeight * 0.3;
+    const fivePercentViewPortHeight = window.innerHeight * 0.05;
 
     if (sectionRefs.current) {
       let sectionRelativeY = sectionRefs.current.map((section) =>
         section
-          ? section.getBoundingClientRect().top - thirtyPercentViewportHeight
+          ? section.getBoundingClientRect().top - fivePercentViewPortHeight
           : null,
       );
+      console.log(sectionRelativeY)
 
       if (sectionRelativeY[0] !== null && sectionRelativeY[0] > 0) {
         // If window top is above any section
@@ -43,6 +46,7 @@ function Content({ setActiveSection }) {
   };
 
   useEffect(() => {
+    console.log(sectionRefs);
     handleScroll(); // initialise section counter
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -52,12 +56,14 @@ function Content({ setActiveSection }) {
 
   return (
     <div className="content">
+      <MainHeader className="content__main-header" />
+      <AboutMe ref={(el) => (sectionRefs.current[0] = el)} />
       {contentSections.map((section, index) => (
         <div
           id={section.id}
           key={section.id}
           className="content-section"
-          ref={(el) => (sectionRefs.current[index] = el)}
+          ref={(el) => (sectionRefs.current[index + 1] = el)} // Adjust index for other sections
         >
           <h2>{section.title}</h2>
           <p>{section.content}</p>
