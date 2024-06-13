@@ -22,48 +22,48 @@ const ProjectList = forwardRef((props, ref) => {
     <div id="section3" className="projects content-section" ref={ref}>
       <h2 className="section-title">Projects</h2>
       {projects.length > 0 ? (
-        <div>
+        <div className="card-list">
           {projects.map((project) => (
-            <div
+            <a
               key={project.id}
+              href={project.repository ? project.repository : "#"}
+              target="_blank"
+              rel="noopener noreferrer"
               onMouseEnter={() => setHoverId(project.id)}
               onMouseLeave={() => setHoverId(null)}
-              className={hoverId && hoverId !== project.id ? "faded" : ""}
+              className={`card project-card ${
+                hoverId && hoverId !== project.id ? "faded" : ""
+              }`}
             >
-              <h2>{project.title}</h2>
+              <div className="card__left">
+                {project.image && (
+                  <p>
+                    <img
+                      src={project.image}
+                      alt={`${project.title} image`}
+                      style={{ maxWidth: "100%" }}
+                    />
+                  </p>
+                )}
+              </div>
+
+              <div className="card__right">
+              <h4>{project.title}</h4>
               <p>{project.description}</p>
-              <p>
-                Skills:{" "}
-                {typeof project.skills === "string"
-                  ? project.skills.split(",").join(", ")
-                  : project.skills}
-              </p>
-              {project.repository && (
-                <p>
-                  <a
-                    href={project.repository}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {project.repository}
-                  </a>
-                </p>
-              )}
-              {project.image && (
-                <p>
-                  <img
-                    src={project.image}
-                    alt={`${project.title} image`}
-                    style={{ maxWidth: "100%" }}
-                  />
-                </p>
-              )}
-            </div>
+                <div className="skills-container">
+                  {project.skills.map((skill, i) => (
+                    <p key={i}>{skill}</p>
+                  ))}
+                </div>
+              </div>
+            </a>
           ))}
         </div>
       ) : (
         <p>No projects found.</p>
       )}
+            <a className="card-list__link" href="https://github.com/16000psi" target="_blank">Click to visit my Github</a>
+
     </div>
   );
 });
