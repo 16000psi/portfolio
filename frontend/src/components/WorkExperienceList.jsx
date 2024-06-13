@@ -2,6 +2,7 @@ import React, { useEffect, useState, forwardRef } from "react";
 import axios from "axios";
 
 const WorkExperienceList = forwardRef((props, ref) => {
+  const [hoverId, setHoverId] = useState(null);
   const [workExperiences, setWorkExperiences] = useState([]);
 
   useEffect(() => {
@@ -25,7 +26,12 @@ const WorkExperienceList = forwardRef((props, ref) => {
       {workExperiences.length > 0 ? (
         <ul>
           {workExperiences.map((experience) => (
-            <li key={experience.id}>
+            <li 
+              key={experience.id}
+              onMouseEnter={() => setHoverId(experience.id)}
+              onMouseLeave={() => setHoverId(null)}
+              className={hoverId && hoverId !== experience.id ? 'faded' : ''}
+            >
               <h2>{experience.title}</h2>
               <p>{experience.when}</p>
               <p>{experience.description}</p>

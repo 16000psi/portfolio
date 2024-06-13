@@ -2,14 +2,13 @@ import React, { useEffect, useState, forwardRef } from "react";
 import axios from "axios";
 
 const ProjectList = forwardRef((props, ref) => {
+  const [hoverId, setHoverId] = useState(null);
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:8000/api/projects/"
-        );
+        const response = await axios.get("http://localhost:8000/api/projects/");
         setProjects(response.data);
       } catch (error) {
         console.error("Error fetching projects:", error);
@@ -25,11 +24,19 @@ const ProjectList = forwardRef((props, ref) => {
       {projects.length > 0 ? (
         <ul>
           {projects.map((project) => (
-            <li key={project.id}>
+            <li
+              key={project.id}
+              onMouseEnter={() => setHoverId(project.id)}
+              onMouseLeave={() => setHoverId(null)}
+              className={hoverId && hoverId !== project.id ? "faded" : ""}
+            >
               <h2>{project.title}</h2>
               <p>{project.description}</p>
               <p>
-                Skills: {typeof project.skills === 'string' ? project.skills.split(",").join(", ") : project.skills}
+                Skills:{" "}
+                {typeof project.skills === "string"
+                  ? project.skills.split(",").join(", ")
+                  : project.skills}
               </p>
               {project.repository && (
                 <p>
@@ -44,7 +51,11 @@ const ProjectList = forwardRef((props, ref) => {
               )}
               {project.image && (
                 <p>
-                  <img src={project.image} alt={`${project.title} image`} style={{maxWidth: '100%'}} />
+                  <img
+                    src={project.image}
+                    alt={`${project.title} image`}
+                    style={{ maxWidth: "100%" }}
+                  />
                 </p>
               )}
             </li>

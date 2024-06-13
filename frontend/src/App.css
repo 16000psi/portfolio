@@ -136,6 +136,10 @@ body {
   display: none;
 
 }
+.faded {
+  opacity: 0.5; /* Adjust the opacity as needed */
+  transition: opacity 0.3s ease;
+}
 
 @media (max-width: 900px) {
   .app {
@@ -161,6 +165,12 @@ body {
 
   .section-title {
     display: block;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #fdfdfd; /* Same as the background color to prevent overlap issues */
+    z-index: 1000; /* Ensure it's on top */
+    padding: 10px 0; /* Optional: Add some padding for better appearance */
 
   }
 }
