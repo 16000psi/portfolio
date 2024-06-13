@@ -3,6 +3,7 @@ import contentSections from "../contentData";
 import MainHeader from "./MainHeader";
 import AboutMe from "./AboutMe";
 import WorkExperienceList from "./WorkExperienceList";
+import ProjectList from "./ProjectList";
 
 function Content({ setActiveSection }) {
   const sectionRefs = useRef([]);
@@ -58,12 +59,13 @@ function Content({ setActiveSection }) {
       <MainHeader className="content__main-header" />
       <AboutMe ref={(el) => (sectionRefs.current[0] = el)} />
       <WorkExperienceList ref={(el) => (sectionRefs.current[1] = el)} />
+      <ProjectList ref={(el) => (sectionRefs.current[2] = el)} />
       {contentSections.map((section, index) => (
         <div
           id={section.id}
           key={section.id}
           className="content-section"
-          ref={(el) => (sectionRefs.current[index + 2] = el)} // Adjust index for other sections
+          ref={(el) => (sectionRefs.current[index + 3] = el)} // Adjust index for other sections
         >
           <h2>{section.title}</h2>
           <p>{section.content}</p>
