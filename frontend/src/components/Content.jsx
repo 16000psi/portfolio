@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import contentSections from "../contentData";
 import MainHeader from "./MainHeader";
 import AboutMe from "./AboutMe";
+import WorkExperienceList from "./WorkExperienceList";
 
 function Content({ setActiveSection }) {
   const sectionRefs = useRef([]);
@@ -56,12 +57,13 @@ function Content({ setActiveSection }) {
     <div className="content">
       <MainHeader className="content__main-header" />
       <AboutMe ref={(el) => (sectionRefs.current[0] = el)} />
+      <WorkExperienceList ref={(el) => (sectionRefs.current[1] = el)} />
       {contentSections.map((section, index) => (
         <div
           id={section.id}
           key={section.id}
           className="content-section"
-          ref={(el) => (sectionRefs.current[index + 1] = el)} // Adjust index for other sections
+          ref={(el) => (sectionRefs.current[index + 2] = el)} // Adjust index for other sections
         >
           <h2>{section.title}</h2>
           <p>{section.content}</p>
