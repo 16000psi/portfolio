@@ -1,7 +1,12 @@
 from rest_framework import viewsets
 
-from .models import Article, TextBlock, VideoBlock
-from .serializers import ArticleSerializer, TextBlockSerializer, VideoBlockSerializer
+from .models import Article, TextBlock, VideoBlock, WorkExperience
+from .serializers import (
+    ArticleSerializer,
+    TextBlockSerializer,
+    VideoBlockSerializer,
+    WorkExperienceSerializer,
+)
 
 
 class ArticleViewSet(viewsets.ModelViewSet):
@@ -17,3 +22,8 @@ class TextBlockViewSet(viewsets.ModelViewSet):
 class VideoBlockViewSet(viewsets.ModelViewSet):
     queryset = VideoBlock.objects.all()
     serializer_class = VideoBlockSerializer
+
+
+class WorkExperienceViewSet(viewsets.ModelViewSet):
+    queryset = WorkExperience.objects.all()
+    serializer_class = WorkExperienceSerializer

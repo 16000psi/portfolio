@@ -38,3 +38,15 @@ class TextBlock(ContentBlock):
 class VideoBlock(ContentBlock):
     video_url = models.URLField()
     caption = models.CharField(max_length=255, blank=True, null=True)
+
+
+class WorkExperience(models.Model):
+    when = models.TextField()
+    title = models.TextField()
+    description = models.TextField()
+    order = models.PositiveIntegerField(unique=True)
+    skills = models.TextField(blank=True)
+    link = models.URLField(max_length=200, blank=True)
+
+    class Meta:
+        ordering = ["order"]
