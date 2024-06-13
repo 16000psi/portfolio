@@ -2,17 +2,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9+Charted&family=Mate:ital@0;1&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9+Charted&family=Mate:ital@0;1&family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&family=Jacquarda+Bastarda+9+Charted&family=Mate:ital@0;1&family=Shrikhand&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Mate:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mate:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   background-color: #fdfdfd;
 }
 * {
@@ -27,7 +28,8 @@ h2,
 h3 {
   font-family: "Shrikhand", serif;
 }
-p, h4 {
+p,
+h4 {
   font-family: "Roboto", sans-serif;
 }
 body {
@@ -70,7 +72,6 @@ body {
 
 .sub-title {
   margin-bottom: 20px;
-
 }
 
 .menu {
@@ -137,7 +138,6 @@ body {
 
 .section-title {
   display: none;
-  
 }
 .faded {
   opacity: 0.5;
@@ -182,12 +182,11 @@ body {
   }
 }
 
-
 .experience-card {
   margin-bottom: 20px;
   display: flex;
   flex-direction: row;
-  text-decoration: none; 
+  text-decoration: none;
   font-weight: inherit;
   color: inherit;
 }
@@ -198,20 +197,19 @@ body {
 }
 
 .experience-card__title-container {
-    display: flex;
-    align-items: center; /* Aligns items vertically in the center */
+  display: flex;
+  align-items: center; /* Aligns items vertically in the center */
 }
 
-
 .title-icon {
-    margin-left: 8px; /* Adds space between the title and the icon */
-    width: 16px; /* Set the width of the icon */
-    height: 16px; /* Set the height of the icon */
+  margin-left: 8px; /* Adds space between the title and the icon */
+  width: 16px; /* Set the width of the icon */
+  height: 16px; /* Set the height of the icon */
 }
 .experience-card:hover {
   font-weight: inherit;
   text-decoration: none;
-  color: inherit; 
+  color: inherit;
 }
 
 .experience-card__left {
@@ -239,8 +237,8 @@ body {
 
 .skills-container p {
   background-color: transparent;
-  color: gray;
-  border: 1px solid	#BEBEBE;
+  color: #bebebe;
+  border: 1px solid #bebebe;
   padding: 2px 5px 2px 5px;
   font-weight: bold;
   border-radius: 4px;
@@ -252,10 +250,25 @@ body {
 .experience-card:hover .skills-container p {
   color: blue;
   border: 1px solid blue;
-
 }
 
+.work-experience {
+  margin-bottom: 50px;
+}
+.cv-link {
+  color: inherit; /* Inherits the color from the parent element */
+  text-decoration: none; /* Removes the underline */
+  font-size: inherit; /* Inherits the font size from the parent element */
+  font-family: "Roboto", sans-serif;
+  /* color: #bebebe; */
+  display: block;
+  text-align: right;
+}
 
+.cv-link:hover {
+  color: blue;
+  transition: color 0.7s ease;
+}
 
 /* .animated-text { */
 /*     background: linear-gradient(120deg, #ff0000, #00ff00, #0000ff, #ff00ff, #00ffff, #ffff00, #ff0000); */

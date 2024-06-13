@@ -24,7 +24,7 @@ const WorkExperienceList = forwardRef((props, ref) => {
     <div id="section2" className="work-experiences content-section" ref={ref}>
       <h2 className="section-title">Work Experiences</h2>
       {workExperiences.length > 0 ? (
-        <div>
+        <div className="work-experience">
           {workExperiences.map((experience) => (
             <a
               key={experience.id}
@@ -55,6 +55,8 @@ const WorkExperienceList = forwardRef((props, ref) => {
       ) : (
         <p>No work experiences found.</p>
       )}
+
+      <a className="cv-link" href="https://drive.google.com/file/d/1DvNDBbrk7epUp5zEKuaazDLg6L1-VdT9/view?usp=sharing" target="_blank">Click to view my full CV</a>
     </div>
   );
 });
