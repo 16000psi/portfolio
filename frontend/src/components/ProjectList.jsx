@@ -21,7 +21,7 @@ const ProjectList = forwardRef((props, ref) => {
 
   return (
     <div id="section3" className="projects content-section" ref={ref}>
-      <h2>Projects</h2>
+      <h2 className="section-title">Projects</h2>
       {projects.length > 0 ? (
         <ul>
           {projects.map((project) => (

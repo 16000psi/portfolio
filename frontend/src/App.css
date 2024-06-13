@@ -132,6 +132,11 @@ body {
 
 }
 
+.section-title {
+  display: none;
+
+}
+
 @media (max-width: 900px) {
   .app {
     flex-direction: column;
@@ -152,6 +157,11 @@ body {
 
   .right-column {
     width: 100%;
+  }
+
+  .section-title {
+    display: block;
+
   }
 }
 
