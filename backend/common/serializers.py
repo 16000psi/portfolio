@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Article, ContentBlock, TextBlock, VideoBlock, WorkExperience
+from .models import Article, ContentBlock, TextBlock, VideoBlock, WorkExperience, Project
 
 
 class TextBlockSerializer(serializers.ModelSerializer):
@@ -44,6 +44,37 @@ class WorkExperienceSerializer(serializers.ModelSerializer):
     class Meta:
         model = WorkExperience
         fields = ["id", "when", "title", "description", "order", "skills", "link"]
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        skills = representation.get("skills")
+        if skills:
+            representation["skills"] = skills.split(",")
+        else:
+            representation["skills"] = []
+        return representation
+
+    def to_internal_value(self, data):
+        skills = data.get("skills", "")
+        if isinstance(skills, list):
+            data["skills"] = ",".join(skills)
+        return super().to_internal_value(data)
+
+
+class ProjectSerializer(serializers.ModelSerializer):
+    skills = serializers.CharField(required=False, allow_blank=True)
+
+    class Meta:
+        model = Project
+        fields = [
+            "id",
+            "title",
+            "description",
+            "order",
+            "skills",
+            "repository",
+            "image",
+        ]
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)

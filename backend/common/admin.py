@@ -4,7 +4,7 @@ from django.contrib.contenttypes.admin import GenericTabularInline
 from django.db import models
 from django.forms import Textarea, TextInput
 
-from .models import Article, TextBlock, VideoBlock, WorkExperience
+from .models import Article, Project, TextBlock, VideoBlock, WorkExperience
 
 
 class TextBlockInlineForm(forms.ModelForm):
@@ -78,6 +78,30 @@ class WorkExperienceAdmin(admin.ModelAdmin):
         return super().formfield_for_dbfield(db_field, **kwargs)
 
 
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ("order", "title", "description", "repository", "image")
+    list_display_links = ("title",)  # Set the 'title' field as the clickable link
+    list_editable = (
+        "order",
+        "description",
+        "repository",
+        "image",
+    )  # Editable fields excluding 'title'
+    ordering = ("order",)
+
+    formfield_overrides = {
+        models.TextField: {"widget": Textarea(attrs={"rows": 1, "cols": 40})},
+    }
+
+    def formfield_for_dbfield(self, db_field, **kwargs):
+        if db_field.name in ["title", "order"]:
+            kwargs["widget"] = TextInput(attrs={"size": "40"})
+        if db_field.name == "skills":
+            kwargs["help_text"] = "Skills as a comma separated list"
+        return super().formfield_for_dbfield(db_field, **kwargs)
+
+
+admin.site.register(Project, ProjectAdmin)
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(TextBlock)
 admin.site.register(VideoBlock)

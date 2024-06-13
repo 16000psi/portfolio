@@ -50,3 +50,15 @@ class WorkExperience(models.Model):
 
     class Meta:
         ordering = ["order"]
+
+
+class Project(models.Model):
+    title = models.TextField()
+    description = models.TextField()
+    order = models.PositiveIntegerField(unique=True)
+    skills = models.TextField(blank=True)
+    repository = models.URLField(max_length=200, blank=True)
+    image = models.URLField(max_length=200, blank=True)
+
+    class Meta:
+        ordering = ["order"]

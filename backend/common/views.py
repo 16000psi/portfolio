@@ -1,8 +1,9 @@
 from rest_framework import viewsets
 
-from .models import Article, TextBlock, VideoBlock, WorkExperience
+from .models import Article, Project, TextBlock, VideoBlock, WorkExperience
 from .serializers import (
     ArticleSerializer,
+    ProjectSerializer,
     TextBlockSerializer,
     VideoBlockSerializer,
     WorkExperienceSerializer,
@@ -27,3 +28,8 @@ class VideoBlockViewSet(viewsets.ModelViewSet):
 class WorkExperienceViewSet(viewsets.ModelViewSet):
     queryset = WorkExperience.objects.all()
     serializer_class = WorkExperienceSerializer
+
+
+class ProjectViewSet(viewsets.ModelViewSet):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
