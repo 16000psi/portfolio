@@ -22,9 +22,9 @@ const ProjectList = forwardRef((props, ref) => {
     <div id="section3" className="projects content-section" ref={ref}>
       <h2 className="section-title">Projects</h2>
       {projects.length > 0 ? (
-        <ul>
+        <div>
           {projects.map((project) => (
-            <li
+            <div
               key={project.id}
               onMouseEnter={() => setHoverId(project.id)}
               onMouseLeave={() => setHoverId(null)}
@@ -58,9 +58,9 @@ const ProjectList = forwardRef((props, ref) => {
                   />
                 </p>
               )}
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       ) : (
         <p>No projects found.</p>
       )}

@@ -24,10 +24,10 @@ const WorkExperienceList = forwardRef((props, ref) => {
     <div id="section2" className="work-experiences content-section" ref={ref}>
       <h2 className="section-title">Work Experiences</h2>
       {workExperiences.length > 0 ? (
-        <ul>
+        <div>
           {workExperiences.map((experience) => (
-            <li 
-              key={experience.id}
+            <div 
+              Key={experience.id}
               onMouseEnter={() => setHoverId(experience.id)}
               onMouseLeave={() => setHoverId(null)}
               className={hoverId && hoverId !== experience.id ? 'faded' : ''}
@@ -47,9 +47,9 @@ const WorkExperienceList = forwardRef((props, ref) => {
                   </a>
                 </p>
               )}
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       ) : (
         <p>No work experiences found.</p>
       )}
