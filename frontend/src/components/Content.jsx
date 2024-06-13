@@ -11,12 +11,12 @@ function Content({ setActiveSection }) {
   let newSection = useRef("");
 
   const handleScroll = () => {
-    const fivePercentViewPortHeight = window.innerHeight * 0.05;
+    const thirtyPercentViewPortHeight = window.innerHeight * 0.30;
 
     if (sectionRefs.current) {
       let sectionRelativeY = sectionRefs.current.map((section) =>
         section
-          ? section.getBoundingClientRect().top - fivePercentViewPortHeight
+          ? section.getBoundingClientRect().top - thirtyPercentViewPortHeight
           : null,
       );
 
