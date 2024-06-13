@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9+Charted&family=Mate:ital@0;1&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9+Charted&family=Mate:ital@0;1&family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&family=Jacquarda+Bastarda+9+Charted&family=Mate:ital@0;1&family=Shrikhand&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Mate:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 *,
 *::before,
@@ -11,7 +12,7 @@
   box-sizing: border-box; 
 }
 
-html {
+html, body {
   background-color: #fdfdfd;
 }
 * {
@@ -19,16 +20,15 @@ html {
   /* font-family: "Jacquarda Bastarda 9 Charted", serif; */
   /* font-family: "Shrikhand", serif; */
   font-family: "Jacquarda Bastarda 9", serif;
-  text-align: justify;
+  /* text-align: justify; */
 }
 
 h2,
-h3,
-h4 {
+h3 {
   font-family: "Shrikhand", serif;
 }
-p {
-  font-family: "Mate", serif;
+p, h4 {
+  font-family: "Roboto", sans-serif;
 }
 body {
   margin: 0;
@@ -66,6 +66,11 @@ body {
 .main-title {
   margin-top: 80px;
   margin-bottom: 20px;
+}
+
+.sub-title {
+  margin-bottom: 20px;
+
 }
 
 .menu {
@@ -132,6 +137,7 @@ body {
 
 .section-title {
   display: none;
+  
 }
 .faded {
   opacity: 0.5;
@@ -162,7 +168,7 @@ body {
 
   .section-title {
     display: block;
-    position: -webkit-sticky;
+    margin-bottom: 50px;
     position: sticky;
     top: 0;
     background-color: #fdfdfd;
@@ -175,3 +181,96 @@ body {
     transition: opacity 0s ease;
   }
 }
+
+
+.experience-card {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none; 
+  font-weight: inherit;
+  color: inherit;
+}
+
+.experience-card h4 {
+  margin-bottom: 18px;
+  display: inline;
+}
+
+.experience-card__title-container {
+    display: flex;
+    align-items: center; /* Aligns items vertically in the center */
+}
+
+
+.title-icon {
+    margin-left: 8px; /* Adds space between the title and the icon */
+    width: 16px; /* Set the width of the icon */
+    height: 16px; /* Set the height of the icon */
+}
+.experience-card:hover {
+  font-weight: inherit;
+  text-decoration: none;
+  color: inherit; 
+}
+
+.experience-card__left {
+  width: 25%;
+  padding: 10px;
+}
+
+.experience-card__left p {
+  text-transform: capitalize;
+  font-size: 0.8rem;
+}
+.experience-card__right {
+  width: 75%;
+  padding: 10px;
+}
+
+.skills-container {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.8rem;
+}
+
+.skills-container p {
+  background-color: transparent;
+  color: gray;
+  border: 1px solid	#BEBEBE;
+  padding: 2px 5px 2px 5px;
+  font-weight: bold;
+  border-radius: 4px;
+  transition:
+    color 0.7s ease,
+    border 0.7s ease;
+}
+
+.experience-card:hover .skills-container p {
+  color: blue;
+  border: 1px solid blue;
+
+}
+
+
+
+/* .animated-text { */
+/*     background: linear-gradient(120deg, #ff0000, #00ff00, #0000ff, #ff00ff, #00ffff, #ffff00, #ff0000); */
+/*     background-size: 500% 500%; */
+/*     background-clip: text; */
+/*     -webkit-background-clip: text; */
+/*     color: transparent; */
+/*     animation: streak-animation 40s linear infinite; */
+/* } */
+/**/
+/* @keyframes streak-animation { */
+/*     0% { */
+/*         background-position: 0% 50%; */
+/*     } */
+/*     100% { */
+/*         background-position: 500% 50%; */
+/*     } */
+/* } */

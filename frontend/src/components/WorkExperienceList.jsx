@@ -2,8 +2,8 @@ import React, { useEffect, useState, forwardRef } from "react";
 import axios from "axios";
 
 const WorkExperienceList = forwardRef((props, ref) => {
-  const [hoverId, setHoverId] = useState(null);
   const [workExperiences, setWorkExperiences] = useState([]);
+  const [hoverId, setHoverId] = useState(null);
 
   useEffect(() => {
     const fetchWorkExperiences = async () => {
@@ -26,28 +26,30 @@ const WorkExperienceList = forwardRef((props, ref) => {
       {workExperiences.length > 0 ? (
         <div>
           {workExperiences.map((experience) => (
-            <div 
-              Key={experience.id}
+            <a
+              key={experience.id}
+              href={experience.link ? experience.link : "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`experience-card ${
+                hoverId && hoverId !== experience.id ? "faded" : ""
+              }`}
               onMouseEnter={() => setHoverId(experience.id)}
               onMouseLeave={() => setHoverId(null)}
-              className={hoverId && hoverId !== experience.id ? 'faded' : ''}
             >
-              <h2>{experience.title}</h2>
-              <p>{experience.when}</p>
-              <p>{experience.description}</p>
-              <p>Skills: {experience.skills.join(", ")}</p>
-              {experience.link && (
-                <p>
-                  <a
-                    href={experience.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {experience.link}
-                  </a>
-                </p>
-              )}
-            </div>
+              <div className="experience-card__left">
+                <p>{experience.when.toUpperCase()}</p>
+              </div>
+              <div className="experience-card__right">
+                <h4>{experience.title}</h4>
+                <p>{experience.description}</p>
+                <div className="skills-container">
+                  {experience.skills.map((skill, i) => (
+                    <p key={i}>{skill}</p>
+                  ))}
+                </div>
+              </div>
+            </a>
           ))}
         </div>
       ) : (
