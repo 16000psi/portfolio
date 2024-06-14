@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import contentSections from "../contentData";
 import MainHeader from "./MainHeader";
 import AboutMe from "./AboutMe";
 import WorkExperienceList from "./WorkExperienceList";
 import ProjectList from "./ProjectList";
+import Footer from "./Footer";
+import Socials from "./Socials";
 
 function Content({ setActiveSection }) {
   const sectionRefs = useRef([]);
@@ -11,7 +12,7 @@ function Content({ setActiveSection }) {
   let newSection = useRef("");
 
   const handleScroll = () => {
-    const thirtyPercentViewPortHeight = window.innerHeight * 0.30;
+    const thirtyPercentViewPortHeight = window.innerHeight * 0.3;
 
     if (sectionRefs.current) {
       let sectionRelativeY = sectionRefs.current.map((section) =>
@@ -57,20 +58,11 @@ function Content({ setActiveSection }) {
   return (
     <div className="content">
       <MainHeader className="content__main-header" />
+      <Socials className="content__socials" />
       <AboutMe ref={(el) => (sectionRefs.current[0] = el)} />
       <WorkExperienceList ref={(el) => (sectionRefs.current[1] = el)} />
       <ProjectList ref={(el) => (sectionRefs.current[2] = el)} />
-      {contentSections.map((section, index) => (
-        <div
-          id={section.id}
-          key={section.id}
-          className="content-section"
-          ref={(el) => (sectionRefs.current[index + 3] = el)} // Adjust index for other sections
-        >
-          <h2>{section.title}</h2>
-          <p>{section.content}</p>
-        </div>
-      ))}
+      <Footer />
     </div>
   );
 }

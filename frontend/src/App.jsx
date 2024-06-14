@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Menu from "./components/Menu";
 import Content from "./components/Content";
+import Socials from "./components/Socials";
 import "./App.css";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           activeSection={activeSection}
           setActiveSection={setActiveSection}
         />
+        <Socials className="menu__socials" />
       </div>
       <div className="right-column">
         <Content setActiveSection={setActiveSection} />

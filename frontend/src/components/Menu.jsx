@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import MainHeader from "./MainHeader";
+import Socials from "./Socials";
 
 const menuItems = [
   { id: "1", label: "About" },
   { id: "2", label: "Work" },
   { id: "3", label: "Projects" },
-  { id: "4", label: "Blog" },
 ];
 
 function Menu({ activeSection, setActiveSection }) {
