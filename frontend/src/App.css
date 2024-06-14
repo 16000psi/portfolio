@@ -3,17 +3,64 @@
 @import url("https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9+Charted&family=Mate:ital@0;1&family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&family=Jacquarda+Bastarda+9+Charted&family=Mate:ital@0;1&family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mate:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Jacquard+24&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Dosis:wght@200..800&family=Jacquard+24&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jaini+Purva&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 
 :root {
   --background-color: #f5f5f5;
   --text-color: rgba(0, 0, 0, 0.8);
   --accent-color: blue;
+
+  /* --h1-text: "Jacquarda Bastarda 9", serif; */
+  /* --main-text: "Dosis", sans-serif; */
+  /* --subtitle-text: "Shrikhand", serif; */
+  /* --menu-text: "Dosis", sans-serif; */
+  /* --surprise-text: "Jacquarda Bastarda 9 Charted", serif; */
+  /**/
+  /* --h1-text: "Dosis", sans-serif; */
+  /* --main-text: "Dosis", sans-serif; */
+  /* --subtitle-text: "Jacquard 24", serif; */
+  /* --menu-text: "Dosis", sans-serif; */
+  /* --surprise-text: "Jacquarda Bastarda 9 Charted", serif; */
+
+  /* --h1-text: "Dosis", sans-serif; */
+  /* --main-text: "Dosis", sans-serif; */
+  /* --subtitle-text: "Dosis", sans-serif; */
+  /* --menu-text: "Dosis", sans-serif; */
+  /* --surprise-text: "Jacquarda Bastarda 9 Charted", serif; */
+  /**/
+  /* --h1-text: "Play", sans-serif; */
+  /* --main-text: "Dosis", sans-serif; */
+  /* --subtitle-text: "Play", sans-serif; */
+  /* --menu-text: "Play", sans-serif; */
+  /* --surprise-text: "Jacquarda Bastarda 9 Charted", serif; */
+  /**/
+  --h1-text: "Dosis", sans-serif;
+  --main-text: "Dosis", sans-serif;
+  --subtitle-text: "Zen Dots", sans-serif;
+  --menu-text: "Dosis", sans-serif;
+  --surprise-text: "Jacquarda Bastarda 9 Charted", serif;
+  /* --h1-text: "Shrikhand", serif; */
+  /* --main-text: "Dosis", sans-serif; */
+  /* --subtitle-text: "Dosis", sans-serif; */
+  /* --menu-text: "Dosis", sans-serif; */
+  /* --surprise-text: "Jacquarda Bastarda 9 Charted", serif; */
+  /* font-family: "Jacquarda Bastarda 9 Charted", serif; */
+  /* font-family: "Shrikhand", serif; */
+    /* font-family: "Jaini Purva", system-ui; */
 }
 
 [data-theme="dark"] {
   --background-color: #313639;
   --text-color: rgba(255, 255, 255, 0.8);
-  --accent-color: #d05030;
+  --accent-color: #f9490c;
+}
+html {
+  background-color: var(--background-color);
 }
 body {
   background-color: var(--background-color);
@@ -32,21 +79,22 @@ body {
 }
 
 * {
-  /* font-family: "Mate", serif; */
-  /* font-family: "Jacquarda Bastarda 9 Charted", serif; */
-  /* font-family: "Shrikhand", serif; */
-  font-family: "Jacquarda Bastarda 9", serif;
-  /* text-align: justify; */
+  font-family: var(--menu-text);
 }
+
 
 h2,
 h3 {
-  font-family: "Shrikhand", serif;
+  font-family: var(--subtitle-text);
 }
 p,
 h4 {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--main-text);
 }
+p {
+  font-size: 17px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -81,6 +129,7 @@ body {
 }
 
 .main-title {
+  font-family: var(--h1-text);
   margin-top: 80px;
   margin-bottom: 20px;
 }
@@ -96,7 +145,7 @@ body {
 }
 
 .menu h2 {
-  font-size: 20px;
+  font-size: 22px;
   margin-bottom: 10px;
 }
 
@@ -104,12 +153,11 @@ body {
   padding: 10px;
   font-size: 1.3rem;
   cursor: pointer;
-  /* font-family: "Shrikhand", serif; */
   transition:
     background-color 0.7s ease,
-    color 0.3s ease,
+    color 0.1s ease,
     text-shadow 0.3s ease,
-    padding 0.3s ease;
+    padding 0.3s ease-out;
   position: relative;
 }
 
@@ -119,51 +167,59 @@ body {
   font-weight: bold;
 }
 
-[data-theme="light"] {
-  .menu-item.active {
-    text-shadow:
-      -7px 0 0 rgba(0, 0, 255, 0.1),
-      -9px 0 0 rgba(0, 0, 255, 0.09),
-      -11px 0 0 rgba(0, 0, 255, 0.08),
-      -13px 0 0 rgba(0, 0, 255, 0.07),
-      -15px 0 0 rgba(0, 0, 255, 0.06),
-      -18px 0 0 rgba(0, 0, 255, 0.05),
-      -21px 0 0 rgba(0, 0, 255, 0.04),
-      -24px 0 0 rgba(0, 0, 255, 0.03),
-      -28px 0 0 rgba(0, 0, 255, 0.02),
-      -34px 0 0 rgba(0, 0, 255, 0.01);
-  }
-}
-[data-theme="dark"] {
-  .menu-item.active {
-    text-shadow:
-      -7px 0 0 rgba(255, 192, 203, 0.1),
-      -9px 0 0 rgba(255, 192, 203, 0.09),
-      -11px 0 0 rgba(255, 192, 203, 0.08),
-      -13px 0 0 rgba(255, 192, 203, 0.07),
-      -15px 0 0 rgba(255, 192, 203, 0.06),
-      -18px 0 0 rgba(255, 192, 203, 0.05),
-      -21px 0 0 rgba(255, 192, 203, 0.04),
-      -24px 0 0 rgba(255, 192, 203, 0.03),
-      -28px 0 0 rgba(255, 192, 203, 0.02),
-      -34px 0 0 rgba(255, 192, 203, 0.01);
-  }
-}
-
-/* .menu-item.active::before { */
-/*   content: "--- "; */
-/*   position: absolute; */
-/*   left: -50px; */
-/*   opacity: 0; */
-/*   transition: */
-/*     left 0.7s ease, */
-/*     opacity 0.7s ease; */
+/* [data-theme="light"] { */
+/*   .menu-item.active { */
+/*     text-shadow: */
+/*       -17px 0 0 rgba(0, 0, 255, 0.1), */
+/*       -19px 0 0 rgba(0, 0, 255, 0.09), */
+/*       -21px 0 0 rgba(0, 0, 255, 0.08), */
+/*       -23px 0 0 rgba(0, 0, 255, 0.07), */
+/*       -25px 0 0 rgba(0, 0, 255, 0.06), */
+/*       -28px 0 0 rgba(0, 0, 255, 0.05), */
+/*       -31px 0 0 rgba(0, 0, 255, 0.04), */
+/*       -34px 0 0 rgba(0, 0, 255, 0.03), */
+/*       -38px 0 0 rgba(0, 0, 255, 0.02), */
+/*       -44px 0 0 rgba(0, 0, 255, 0.01); */
+/*   } */
 /* } */
+/* [data-theme="dark"] { */
+/*   .menu-item.active { */
+/*     text-shadow: */
+/*       -17px 0 0 rgba(255, 192, 203, 0.1), */
+/*       -19px 0 0 rgba(255, 192, 203, 0.09), */
+/*       -21px 0 0 rgba(255, 192, 203, 0.08), */
+/*       -23px 0 0 rgba(255, 192, 203, 0.07), */
+/*       -25px 0 0 rgba(255, 192, 203, 0.06), */
+/*       -28px 0 0 rgba(255, 192, 203, 0.05), */
+/*       -31px 0 0 rgba(255, 192, 203, 0.04), */
+/*       -34px 0 0 rgba(255, 192, 203, 0.03), */
+/*       -38px 0 0 rgba(255, 192, 203, 0.02), */
+/*       -44px 0 0 rgba(255, 192, 203, 0.01); */
+/*   } */
+/* } */
+
+.menu-item.active::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 50%;
+  width: 20px; 
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition:
+    left 0.5s ease,
+    opacity 0.5s ease;
+}
 
 .menu-item.active:hover::before,
 .menu-item.active::before {
   left: 0;
   opacity: 1;
+  transition:
+    left 0.5s ease,
+    opacity 0.5s ease;
 }
 
 .right-column {
@@ -246,7 +302,7 @@ body {
 
 .card__left p {
   text-transform: capitalize;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 .card__right {
   width: 75%;
@@ -284,7 +340,6 @@ body {
   color: var(--accent-color);
 }
 
-
 .card-list {
   margin-bottom: 50px;
 }
@@ -305,9 +360,9 @@ body {
   display: none;
 }
 
-  .section-title {
-    background-color: var(--background-color);
-  }
+.section-title {
+  background-color: var(--background-color);
+}
 
 @media (max-width: 950px) {
   .app {
@@ -344,7 +399,6 @@ body {
     z-index: 1000;
     padding: 10px;
   }
-
 
   .faded {
     opacity: 1;
@@ -388,10 +442,20 @@ body {
 
 .menu__socials {
   position: absolute;
-  top: 88.5vh;
+  top: 86.5vh;
 }
 
-.animated-text {
+.inline-link {
+  color: inherit;
+  font-family: var(--main-text);
+}
+
+.inline-link:hover {
+  color: var(--accent-color);
+}
+
+.animated-text, .animated-text:hover {
+  font-family: var(--surprise-text);
   background: linear-gradient(
     120deg,
     #ff0000,
@@ -408,6 +472,7 @@ body {
   color: transparent;
   animation: streak-animation 40s linear infinite;
 }
+
 
 @keyframes streak-animation {
   0% {

@@ -11,6 +11,16 @@ const Socials = ({ className, theme, toggleTheme }) => {
   return (
     <div className={`socials ${className}`}>
       <a
+        href="#"
+        onClick={(e) => {
+          e.preventDefault();
+          toggleTheme();
+        }}
+        aria-label="Toggle Theme"
+      >
+        {theme === "light" ? <FaMoon /> : <FaSun />}
+      </a>
+      <a
         href="https://www.linkedin.com/in/dave-smith-180951265/"
         aria-label="LinkedIn"
         target="_blank"
@@ -33,16 +43,6 @@ const Socials = ({ className, theme, toggleTheme }) => {
         rel="noopener noreferrer"
       >
         <FaEnvelope />
-      </a>
-      <a
-        href="#"
-        onClick={(e) => {
-          e.preventDefault();
-          toggleTheme();
-        }}
-        aria-label="Toggle Theme"
-      >
-        {theme === "light" ? <FaMoon /> : <FaSun />}
       </a>
     </div>
   );
