@@ -25,38 +25,47 @@ const WorkExperienceList = forwardRef((props, ref) => {
       <h2 className="section-title">Work Experiences</h2>
       {workExperiences.length > 0 ? (
         <div className="card-list">
-          {workExperiences.map((experience) => (
-            <a
-              key={experience.id}
-              href={experience.link ? experience.link : "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`card experience-card ${
-                hoverId && hoverId !== experience.id ? "faded" : ""
-              }`}
-              onMouseEnter={() => setHoverId(experience.id)}
-              onMouseLeave={() => setHoverId(null)}
-            >
-              <div className="card__left">
-                <p>{experience.when.toUpperCase()}</p>
-              </div>
-              <div className="card__right">
-                <h4>{experience.title}</h4>
-                <p>{experience.description}</p>
-                <div className="skills-container">
-                  {experience.skills.map((skill, i) => (
-                    <p key={i}>{skill}</p>
-                  ))}
-                </div>
-              </div>
-            </a>
-          ))}
+          {workExperiences.map(
+            (experience) =>
+              !experience.hidden && (
+                <a
+                  key={experience.id}
+                  href={experience.link ? experience.link : "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`card experience-card ${
+                    hoverId && hoverId !== experience.id ? "faded" : ""
+                  }`}
+                  onMouseEnter={() => setHoverId(experience.id)}
+                  onMouseLeave={() => setHoverId(null)}
+                >
+                  <div className="card__left">
+                    <p>{experience.when.toUpperCase()}</p>
+                  </div>
+                  <div className="card__right">
+                    <h4>{experience.title}</h4>
+                    <p>{experience.description}</p>
+                    <div className="skills-container">
+                      {experience.skills.map((skill, i) => (
+                        <p key={i}>{skill}</p>
+                      ))}
+                    </div>
+                  </div>
+                </a>
+              ),
+          )}
         </div>
       ) : (
         <p>No work experiences found.</p>
       )}
 
-      <a className="card-list__link" href="https://drive.google.com/file/d/1DvNDBbrk7epUp5zEKuaazDLg6L1-VdT9/view?usp=sharing" target="_blank">Click to view my full CV</a>
+      <a
+        className="card-list__link"
+        href="https://drive.google.com/file/d/1DvNDBbrk7epUp5zEKuaazDLg6L1-VdT9/view?usp=sharing"
+        target="_blank"
+      >
+        Click to view my full CV
+      </a>
     </div>
   );
 });

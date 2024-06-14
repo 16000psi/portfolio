@@ -47,6 +47,10 @@ class WorkExperience(models.Model):
     order = models.PositiveIntegerField(unique=True)
     skills = models.TextField(blank=True)
     link = models.URLField(max_length=200, blank=True)
+    hidden = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.title}"
 
     class Meta:
         ordering = ["order"]
@@ -59,6 +63,10 @@ class Project(models.Model):
     skills = models.TextField(blank=True)
     repository = models.URLField(max_length=200, blank=True)
     image = models.URLField(max_length=200, blank=True)
+    hidden = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.title}"
 
     class Meta:
         ordering = ["order"]

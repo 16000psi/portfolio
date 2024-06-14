@@ -56,14 +56,15 @@ class ArticleAdmin(admin.ModelAdmin):
 
 
 class WorkExperienceAdmin(admin.ModelAdmin):
-    list_display = ("order", "title", "when", "description", "link")
-    list_display_links = ("title",)  # Set the 'title' field as the clickable link
+    list_display = ("order", "title", "when", "description", "link", "hidden")
+    list_display_links = ("title",)
     list_editable = (
         "order",
         "when",
         "description",
         "link",
-    )  # Editable fields excluding 'title'
+        "hidden",
+    ) 
     ordering = ("order",)
 
     formfield_overrides = {
@@ -79,14 +80,14 @@ class WorkExperienceAdmin(admin.ModelAdmin):
 
 
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ("order", "title", "description", "repository", "image")
-    list_display_links = ("title",)  # Set the 'title' field as the clickable link
+    list_display = ("order", "title", "description", "repository", "image", "hidden")
+    list_display_links = ("title",)
     list_editable = (
         "order",
         "description",
         "repository",
         "image",
-    )  # Editable fields excluding 'title'
+    )
     ordering = ("order",)
 
     formfield_overrides = {

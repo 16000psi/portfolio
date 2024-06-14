@@ -23,7 +23,8 @@ const ProjectList = forwardRef((props, ref) => {
       <h2 className="section-title">Projects</h2>
       {projects.length > 0 ? (
         <div className="card-list">
-          {projects.map((project) => (
+          {projects.map((project) => 
+            !project.hidden && (
             <a
               key={project.id}
               href={project.repository ? project.repository : "#"}
@@ -61,6 +62,7 @@ const ProjectList = forwardRef((props, ref) => {
         </div>
       ) : (
         <p>No projects found.</p>
+        
       )}
             <a className="card-list__link" href="https://github.com/16000psi" target="_blank">Click to visit my Github</a>
 

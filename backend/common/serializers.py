@@ -43,7 +43,7 @@ class WorkExperienceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = WorkExperience
-        fields = ["id", "when", "title", "description", "order", "skills", "link"]
+        fields = ["id", "when", "title", "description", "order", "skills", "link", "hidden"]
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
@@ -74,6 +74,7 @@ class ProjectSerializer(serializers.ModelSerializer):
             "skills",
             "repository",
             "image",
+            "hidden",
         ]
 
     def to_representation(self, instance):
