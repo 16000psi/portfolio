@@ -6,7 +6,7 @@ import ProjectList from "./ProjectList";
 import Footer from "./Footer";
 import Socials from "./Socials";
 
-function Content({ setActiveSection }) {
+function Content({ setActiveSection, theme, toggleTheme }) {
   const sectionRefs = useRef([]);
   let previousSection = useRef("");
   let newSection = useRef("");
@@ -58,7 +58,11 @@ function Content({ setActiveSection }) {
   return (
     <div className="content">
       <MainHeader className="content__main-header" />
-      <Socials className="content__socials" />
+      <Socials
+        className="content__socials"
+        theme={theme}
+        toggleTheme={toggleTheme}
+      />
       <AboutMe ref={(el) => (sectionRefs.current[0] = el)} />
       <WorkExperienceList ref={(el) => (sectionRefs.current[1] = el)} />
       <ProjectList ref={(el) => (sectionRefs.current[2] = el)} />

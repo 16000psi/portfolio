@@ -1,7 +1,13 @@
 import React from "react";
-import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaEnvelope,
+  FaSun,
+  FaMoon,
+} from "react-icons/fa";
 
-const Socials = ({ className }) => {
+const Socials = ({ className, theme, toggleTheme }) => {
   return (
     <div className={`socials ${className}`}>
       <a
@@ -27,6 +33,16 @@ const Socials = ({ className }) => {
         rel="noopener noreferrer"
       >
         <FaEnvelope />
+      </a>
+      <a
+        href="#"
+        onClick={(e) => {
+          e.preventDefault();
+          toggleTheme();
+        }}
+        aria-label="Toggle Theme"
+      >
+        {theme === "light" ? <FaMoon /> : <FaSun />}
       </a>
     </div>
   );

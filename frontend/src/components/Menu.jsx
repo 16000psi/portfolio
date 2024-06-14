@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import MainHeader from "./MainHeader";
-import Socials from "./Socials";
 
 const menuItems = [
   { id: "1", label: "About" },
