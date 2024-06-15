@@ -160,14 +160,14 @@ body {
     background-color 0.7s ease,
     color 0.1s ease,
     text-shadow 0.3s ease,
-    padding 0.3s ease-out;
+    padding 0.2s ease-out;
   position: relative;
 }
 
 .menu-item.active {
-  padding-left: 50px;
+  padding-left: 30px;
   color: var(--accent-color);
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 /* [data-theme="light"] { */
@@ -204,14 +204,15 @@ body {
 .menu-item.active::before {
   content: "";
   position: absolute;
-  left: -50px;
   top: 50%;
-  width: 20px; 
+  width: 10px; 
   height: 1px;
+  margin-left: 10px;
   background-color: currentColor;
   opacity: 0;
-  transform: translateY(-50%);
   transition:
+    margin-left 0.5s ease,
+
     left 0.5s ease,
     opacity 0.5s ease;
 }
