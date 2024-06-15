@@ -1,4 +1,6 @@
 import React, { useEffect, useState, forwardRef } from "react";
+import { MdArrowOutward } from "react-icons/md";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import axios from "axios";
 
 const WorkExperienceList = forwardRef((props, ref) => {
@@ -43,7 +45,11 @@ const WorkExperienceList = forwardRef((props, ref) => {
                     <p>{experience.when.toUpperCase()}</p>
                   </div>
                   <div className="card__right">
-                    <h4>{experience.title}</h4>
+                    <h4>
+                      {experience.title}
+                      {"   "}
+                      <MdArrowOutward className="external-link-icon" />
+                    </h4>
                     <p>{experience.description}</p>
                     <div className="skills-container">
                       {experience.skills.map((skill, i) => (
@@ -64,7 +70,9 @@ const WorkExperienceList = forwardRef((props, ref) => {
         href="https://drive.google.com/file/d/1DvNDBbrk7epUp5zEKuaazDLg6L1-VdT9/view?usp=sharing"
         target="_blank"
       >
-        Click to view my full CV
+        View my full CV
+        {"   "}
+        <FaExternalLinkAlt className="external-link-icon" />
       </a>
     </div>
   );

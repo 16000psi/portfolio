@@ -56,11 +56,14 @@
 
 [data-theme="dark"] {
   --background-color: #313639;
-  --text-color: rgba(255, 255, 255, 0.8);
+  --text-color: rgba(255, 255, 255, 0.88);
   --accent-color: #f9490c;
 }
+
 html {
-  background-color: var(--background-color);
+  background-color: var(--background-color)!important;
+  width: 100%;
+  height: 100%;
 }
 body {
   background-color: var(--background-color);
@@ -482,3 +485,22 @@ body {
     background-position: 500% 50%;
   }
 }
+
+
+.card .external-link-icon {
+  color: var(--background-color);
+  font-size: 12px;
+  transition: color 0.3s ease;
+
+}
+
+.card:hover .external-link-icon {
+  color: var(--text-color);
+}
+
+.external-link-icon {
+  font-size: 12px;
+
+}
+
+
