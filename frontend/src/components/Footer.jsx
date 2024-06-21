@@ -14,7 +14,7 @@ const Footer = forwardRef((props, ref) => {
           NeoVim
         </a>
         . It is hosted on a Raspberry Pi at a datacenter somewhere in Cambridge,
-        UK which I rent from{" "}
+        UK, which I rent from{" "}
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -23,8 +23,7 @@ const Footer = forwardRef((props, ref) => {
         >
           Mythic Beasts
         </a>
-        . I am humbly looking for a full time junior developer role - if you are
-        looking to hire and think I might be a good fit, you should{" "}
+        . If you need to contact me, the best way to do so is to{" "}
         <a
           href="mailto:davidjhnsmith@gmail.com"
           aria-label="Email"
